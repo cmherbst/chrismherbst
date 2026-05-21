@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chris M. Herbst | Arizona State University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2744;
+      --gold: #b8973a;
+      --gold-light: #d4b05a;
+      --cream: #f8f5ef;
+      --warm-white: #fdfcf9;
+      --text: #2c2c2c;
+      --text-muted: #6b6b6b;
+      --border: #e0d9cc;
+      --accent-bg: #f0ece3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--warm-white);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3rem;
+      height: 58px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-light);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; align-items: center;
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(184,151,58,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(184,151,58,0.04) 0%, transparent 60%);
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 3rem;
+      display: grid; grid-template-columns: 340px 1fr;
+      gap: 5rem; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-photo-wrap {
+      position: relative;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: 18px; left: 18px;
+      width: 100%; height: 100%;
+      border: 2px solid var(--gold);
+      border-radius: 2px;
+      opacity: 0.5;
+    }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 2px;
+      display: block;
+      position: relative; z-index: 1;
+      filter: grayscale(8%);
+    }
+    .hero-text {}
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      color: #fff;
+      line-height: 1.12;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
+    .hero-divider {
+      width: 48px; height: 2px;
+      background: var(--gold);
+      margin-bottom: 1.8rem;
+    }
+    .hero-interests {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .tag {
+      background: rgba(184,151,58,0.12);
+      border: 1px solid rgba(184,151,58,0.3);
+      color: var(--gold-light);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+    }
+    .hero-contact {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+    }
+    .hero-contact a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .hero-contact a:hover { color: var(--gold-light); }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 80px 0;
+    }
+    .container {
+      max-width: 1100px; margin: 0 auto; padding: 0 3rem;
+    }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--cream); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .about-bio p {
+      margin-bottom: 1.2rem;
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .about-sidebar {}
+    .sidebar-block {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-block h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .sidebar-block ul { list-style: none; }
+    .sidebar-block ul li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding: 0.25rem 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .sidebar-block ul li:last-child { border-bottom: none; }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: var(--warm-white); }
+    .pub-filter {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--navy);
+      color: var(--gold-light);
+      border-color: var(--navy);
+    }
+    .pub-list { display: flex; flex-direction: column; gap: 0; }
+    .pub-item {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 1.2rem;
+      align-items: start;
+      transition: background 0.15s;
+    }
+    .pub-item:hover { background: var(--accent-bg); margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+    .pub-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--gold);
+      font-weight: 500;
+      padding-top: 0.2rem;
+      letter-spacing: 0.04em;
+    }
+    .pub-content {}
+    .pub-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+    .pub-authors {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+      font-style: italic;
+    }
+    .pub-journal {
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    .pub-journal em { color: var(--navy); font-style: italic; }
+
+    /* ── WORKING PAPERS ── */
+    #working-papers { background: var(--cream); }
+
+    /* ── GRANTS ── */
+    #grants { background: var(--warm-white); }
+    .grant-item {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .grant-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+    .grant-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── MEDIA ── */
+    #media { background: var(--cream); }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .media-item {
+      background: var(--warm-white);
+      padding: 1.2rem 1.4rem;
+      transition: background 0.15s;
+    }
+    .media-item:hover { background: var(--accent-bg); }
+    .media-outlet {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .media-title {
+      font-size: 0.88rem;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+    .media-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    /* ── CV ── */
+    #cv { background: var(--navy); }
+    #cv .section-title { color: #fff; border-color: rgba(255,255,255,0.15); }
+    #cv .section-label { color: var(--gold-light); }
+    .cv-block { margin-bottom: 2.5rem; }
+    .cv-block h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-light);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(184,151,58,0.25);
+    }
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cv-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      padding-top: 0.15rem;
+    }
+    .cv-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+    .cv-desc strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+    .cv-download {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0.75rem 1.8rem;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cv-download:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--cream); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    }
+    .contact-info p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .contact-detail {
+      display: flex; align-items: baseline; gap: 0.8rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .contact-detail-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      min-width: 80px;
+    }
+    .contact-detail-value { color: var(--text); }
+    .contact-detail-value a { color: var(--navy); text-decoration: none; }
+    .contact-detail-value a:hover { color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 2rem 3rem;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text > * {
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+    .hero-eyebrow  { animation-delay: 0.1s; }
+    .hero-name     { animation-delay: 0.25s; }
+    .hero-title    { animation-delay: 0.4s; }
+    .hero-divider  { animation-delay: 0.5s; }
+    .hero-interests{ animation-delay: 0.6s; }
+    .hero-contact  { animation-delay: 0.7s; }
+    .hero-photo-wrap {
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.15s forwards;
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-photo-wrap { max-width: 260px; margin: 0 auto; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .container { padding: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Chris M. Herbst</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#grants">Grants</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo-wrap">
+      <img src="Chris_Herbst.png" alt="Chris M. Herbst" class="hero-photo" />
+    </div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">Arizona State University</div>
+      <h1 class="hero-name">Chris M.<br>Herbst</h1>
+      <div class="hero-title">
+        Foundation Professor, School of Public Affairs<br>
+        Faculty Affiliate, School of Social Work<br>
+        Research Fellow, Institute of Labor Economics (IZA)
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-interests">
+        <span class="tag">Child Care Economics</span>
+        <span class="tag">Early Human Capital</span>
+        <span class="tag">Social Safety Net</span>
+        <span class="tag">Labor Economics</span>
+        <span class="tag">Education Policy</span>
+      </div>
+      <div class="hero-contact">
+        411 N. Central Ave., Ste. 420 · Phoenix, Arizona 85004 &nbsp;·&nbsp;
+        <a href="mailto:chris.herbst@asu.edu">chris.herbst@asu.edu</a> &nbsp;·&nbsp;
+        602.496.0458
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Research &amp; Background</h2>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>I am a Foundation Professor in the School of Public Affairs and a faculty affiliate in the School of Social Work at Arizona State University, as well as a Research Fellow at the Institute of Labor Economics (IZA). Previously, I was the George Soros Visiting Chair in the School of Public Policy at Central European University, a Visiting Professor in the Department of Economics and Business Economics at Aarhus University, and a Fulbright Fellow at Aalborg University.</p>
+        <p>My research focuses on the economics of child care and early childhood education, early human capital formation, and the social safety net. Some of my recent work examines the spillover effects of non-child care policy — including minimum wages, interior immigration enforcement, and reproductive technology — on the child care market. I have also studied the impact of children's early exposure to child care on their cognitive and social-emotional development.</p>
+        <p>My work has been published in numerous peer-reviewed outlets, including the <em>Journal of Labor Economics</em>, <em>Journal of Public Economics</em>, <em>Journal of Urban Economics</em>, <em>Journal of Policy Analysis and Management</em>, <em>Educational Researcher</em>, and <em>Early Childhood Research Quarterly</em>. My research has been funded by the National Institutes of Health, Alfred P. Sloan Foundation, Smith Richardson Foundation, and other institutions.</p>
+        <p>My work has been featured in major news outlets, including the <em>New York Times</em>, <em>Washington Post</em>, <em>Wall Street Journal</em>, NPR, <em>The Atlantic</em>, <em>TIME</em>, and <em>Bloomberg</em>. I have spoken about child care and early education as a guest on NPR's <em>The Diane Rehm Show</em>, <em>The Indicator</em>, Shankar Vedantam's <em>Hidden Brain</em>, and KJZZ's <em>The Show</em>.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="sidebar-block">
+          <h4>Education</h4>
+          <ul>
+            <li>Ph.D., Public Policy — University of Maryland, 2007</li>
+            <li>M.P.P., Public Policy — Johns Hopkins University, 2002</li>
+            <li>M.S., Social Work/Policy — Columbia University, 2000</li>
+            <li>B.A., Psychology — Fairfield University, 1998</li>
+          </ul>
+        </div>
+        <div class="sidebar-block">
+          <h4>Selected Fellowships &amp; Awards</h4>
+          <ul>
+            <li>George Soros Visiting Chair, Central European University, 2023–24</li>
+            <li>Fulbright Fellow, Aalborg University, Denmark, 2007–08</li>
+            <li>Distinguished Faculty Research Award, ASU, 2016</li>
+            <li>Distinguished Faculty Research Award, ASU, 2012</li>
+            <li>Ph.D. Dissertation Award, APPAM, 2006–07</li>
+          </ul>
+        </div>
+        <div class="sidebar-block">
+          <h4>Editorial Service</h4>
+          <ul>
+            <li>Editorial Board, <em>J. of Policy Analysis and Management</em>, 2023–</li>
+            <li>Co-Editor, <em>J. of Policy Analysis and Management</em>, 2018–2022</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">Refereed Publications</h2>
+
+    <div class="pub-filter">
+      <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
+      <button class="filter-btn" onclick="filterPubs('2020s', this)">2020s</button>
+      <button class="filter-btn" onclick="filterPubs('2010s', this)">2010s</button>
+      <button class="filter-btn" onclick="filterPubs('2000s', this)">2000s</button>
+    </div>
+
+    <div class="pub-list" id="pub-list">
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <div class="pub-title">How Rising ICE Activity Influences the Childcare Workforce</div>
+          <div class="pub-authors">Aslim, E., Currie, J., Herbst, C.M., &amp; Tekin, E.</div>
+          <div class="pub-journal"><em>Proceedings of the National Academy of Sciences</em>, 123(21), e2602686123.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <div class="pub-title">Effects of Center-Based Child Care on Disadvantaged Children: Evidence from a Randomized Research Design</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Policy Analysis and Management</em>, 45(2).</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <div class="pub-title">The Declining Relative Quality of the Child Care Workforce</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Economics of Education Review</em>, 109, 102726.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <div class="pub-title">Secure Communities as Immigration Enforcement: How Secure is the Child Care Market?</div>
+          <div class="pub-authors">Ali, U., Brown, J.H., &amp; Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Public Economics</em>, 233.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <div class="pub-title">Minimum Quality Regulations and the Demand for Child Care Labor</div>
+          <div class="pub-authors">Ali, U., Herbst, C.M., &amp; Makridis, C.</div>
+          <div class="pub-journal"><em>Journal of Policy Analysis and Management</em>, 43(3), 660–695.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2024</div>
+        <div class="pub-content">
+          <div class="pub-title">Head Start Funding Expansions and Program Inputs</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Kose, E.</div>
+          <div class="pub-journal"><em>Public Finance Review</em>, 52(1), 42–77.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2023</div>
+        <div class="pub-content">
+          <div class="pub-title">Child Care in the United States: Markets, Policy, and Evidence</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Policy Analysis and Management</em>, 42(1), 255–304.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2022</div>
+        <div class="pub-content">
+          <div class="pub-title">Child Care over the Business Cycle</div>
+          <div class="pub-authors">Brown, J.H. &amp; Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Labor Economics</em>, 40(S1), S429–S468.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2021</div>
+        <div class="pub-content">
+          <div class="pub-title">The Impact of COVID-19 on the U.S. Child Care Market: Evidence from Stay-at-Home Orders</div>
+          <div class="pub-authors">Ali, U., Herbst, C.M., &amp; Makridis, C.</div>
+          <div class="pub-journal"><em>Economics of Education Review</em>, 82.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2021</div>
+        <div class="pub-content">
+          <div class="pub-title">Who's Minding the Kids? Experimental Evidence on the Demand for Child Care Quality</div>
+          <div class="pub-authors">Gordon, J., Herbst, C.M., &amp; Tekin, E.</div>
+          <div class="pub-journal"><em>Economics of Education Review</em>, 80.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2020</div>
+        <div class="pub-content">
+          <div class="pub-title">Influence of Quality Credentialing Programs on Teacher Characteristics in Center-Based Early Care and Education Settings</div>
+          <div class="pub-authors">Boyd-Swan, C. &amp; Herbst, C.M.</div>
+          <div class="pub-journal"><em>Early Childhood Research Quarterly</em>, 51(2), 352–365.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2020s">
+        <div class="pub-year">2020</div>
+        <div class="pub-content">
+          <div class="pub-title">What Do Parents Value in a Child Care Provider? Evidence from Yelp Consumer Reviews</div>
+          <div class="pub-authors">Herbst, C.M., Desouza, K., Alashri, A., Kandala, S., Khullar, M., &amp; Bajaj, V.</div>
+          <div class="pub-journal"><em>Early Childhood Research Quarterly</em>, 51(2), 288–306.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2019</div>
+        <div class="pub-content">
+          <div class="pub-title">Racial and Ethnic Discrimination in the Labor Market for Child Care Teachers</div>
+          <div class="pub-authors">Boyd-Swan, C. &amp; Herbst, C.M.</div>
+          <div class="pub-journal"><em>Educational Researcher</em>, 48(7), 394–406.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2019</div>
+        <div class="pub-content">
+          <div class="pub-title">Whom Do Employers Want? The Role of Recent Employment and Unemployment Status and Age</div>
+          <div class="pub-authors">Farber, H., Herbst, C.M., Silverman, D., &amp; von Wachter, T.</div>
+          <div class="pub-journal"><em>Journal of Labor Economics</em>, 37(2), 323–349.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2018</div>
+        <div class="pub-content">
+          <div class="pub-title">The Impact of Quality Rating and Improvement Systems on Families' Child Care Choices and the Supply of Child Care Labor</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Labour Economics</em>, 54, 172–190.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2018</div>
+        <div class="pub-content">
+          <div class="pub-title">The Demand for Teacher Characteristics in the Market for Child Care: Evidence from a Field Experiment</div>
+          <div class="pub-authors">Boyd-Swan, C. &amp; Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Public Economics</em>, 159, 183–202.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2018</div>
+        <div class="pub-content">
+          <div class="pub-title">The Rising Cost of Child Care in the United States: A Reassessment of the Evidence</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Economics of Education Review</em>, 64, 13–30.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2017</div>
+        <div class="pub-content">
+          <div class="pub-title">Universal Child Care, Maternal Employment, and Children's Long-Run Outcomes: Evidence from the U.S. Lanham Act of 1940</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Labor Economics</em>, 35(2), 519–564.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2017</div>
+        <div class="pub-content">
+          <div class="pub-title">Are Parental Welfare Work Requirements Good for Disadvantaged Children? Evidence from Age-of-Youngest-Child Exemptions</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Policy Analysis and Management</em>, 36(2), 327–357.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2017</div>
+        <div class="pub-content">
+          <div class="pub-title">Offline Effects of Online Connecting: The Impact of Broadband Diffusion on Teenage Fertility Decisions</div>
+          <div class="pub-authors">Guldi, M. &amp; Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Population Economics</em>, 30(1), 69–91.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2016</div>
+        <div class="pub-content">
+          <div class="pub-title">Happy in the Hood? The Impact of Residential Segregation on Self-Reported Happiness</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Lucio, J.</div>
+          <div class="pub-journal"><em>Journal of Regional Science</em>, 56(3), 494–521.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2016</div>
+        <div class="pub-content">
+          <div class="pub-title">The Increasing Happiness of U.S. Parents</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Ifcher, J.</div>
+          <div class="pub-journal"><em>Review of Economics of the Household</em>, 14(3), 529–551.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2016</div>
+        <div class="pub-content">
+          <div class="pub-title">The Impact of Child Care Subsidies on Child Development: Evidence from Geographic Variation in the Distance to Social Service Agencies</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Tekin, E.</div>
+          <div class="pub-journal"><em>Journal of Policy Analysis and Management</em>, 35(1), 94–116.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2016</div>
+        <div class="pub-content">
+          <div class="pub-title">The Earned Income Tax Credit, Mental Health, and Happiness</div>
+          <div class="pub-authors">Boyd-Swan, C., Herbst, C.M., Ifcher, J., &amp; Zarghamee, H.</div>
+          <div class="pub-journal"><em>Journal of Economic Behavior and Organization</em>, 126(Part A), 18–38.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2014</div>
+        <div class="pub-content">
+          <div class="pub-title">Child Care Subsidies, Maternal Health, and Child-Parent Interactions: Evidence from Three Nationally Representative Datasets</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Tekin, E.</div>
+          <div class="pub-journal"><em>Health Economics</em>, 23(8), 894–916.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2013</div>
+        <div class="pub-content">
+          <div class="pub-title">The Impact of Non-Parental Child Care on Child Development: Evidence from the Summer Participation "Dip"</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Public Economics</em>, 105, 86–105.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2013</div>
+        <div class="pub-content">
+          <div class="pub-title">Welfare Reform and the Subjective Well-Being of Single Mothers</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Population Economics</em>, 26(1), 203–238.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2012</div>
+        <div class="pub-content">
+          <div class="pub-title">Pain at the Pump: Gasoline Prices and Subjective Well-Being</div>
+          <div class="pub-authors">Boyd-Swan, C. &amp; Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Urban Economics</em>, 72(2–3), 160–175.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2012</div>
+        <div class="pub-content">
+          <div class="pub-title">The Geographic Accessibility of Child Care Subsidies and Evidence on the Impact of Subsidy Receipt on Childhood Obesity</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Tekin, E.</div>
+          <div class="pub-journal"><em>Journal of Urban Economics</em>, 71(1), 37–52.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2012</div>
+        <div class="pub-content">
+          <div class="pub-title">Footloose and Fancy Free? Two Decades of Single Mothers' Subjective Well-Being</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Social Service Review</em>, 86(2), 189–222.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2011</div>
+        <div class="pub-content">
+          <div class="pub-title">The Earned Income Tax Credit and Abortion</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Social Science Research</em>, 40(6), 1638–1651.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2011</div>
+        <div class="pub-content">
+          <div class="pub-title">'Paradoxical' Decline? Another Look at the Relative Reduction in Female Happiness</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Economic Psychology</em>, 32(5), 773–788.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2011</div>
+        <div class="pub-content">
+          <div class="pub-title">Do Child Care Subsidies Influence Single Mothers' Decision to Invest in Human Capital?</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Tekin, E.</div>
+          <div class="pub-journal"><em>Economics of Education Review</em>, 30(5), 901–912.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2011</div>
+        <div class="pub-content">
+          <div class="pub-title">Child Care Subsidies and Childhood Obesity</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Tekin, E.</div>
+          <div class="pub-journal"><em>Review of Economics of the Household</em>, 9(3), 349–378.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2011</div>
+        <div class="pub-content">
+          <div class="pub-title">The Impact of the Earned Income Tax Credit on Marriage and Divorce: Evidence from Flow Data</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Population Research and Policy Review</em>, 30(1), 101–128.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2010</div>
+        <div class="pub-content">
+          <div class="pub-title">Child Care Subsidies and Child Development</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Tekin, E.</div>
+          <div class="pub-journal"><em>Economics of Education Review</em>, 29(4), 618–638.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2010</div>
+        <div class="pub-content">
+          <div class="pub-title">The Labor Supply Effects of Child Care Costs and Wages in the Presence of Subsidies and the Earned Income Tax Credit</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Review of Economics of the Household</em>, 8(2), 199–230.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2010s">
+        <div class="pub-year">2010</div>
+        <div class="pub-content">
+          <div class="pub-title">The Impact of Local Labor Market Conditions on Work and Welfare Decisions: Revisiting an Old Question Using New Data</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Stevens, D.</div>
+          <div class="pub-journal"><em>Population Research and Policy Review</em>, 29(4), 453–479.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2000s">
+        <div class="pub-year">2008</div>
+        <div class="pub-content">
+          <div class="pub-title">Do Social Policy Reforms Have Different Impacts on Employment and Welfare Use as Economic Conditions Change?</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Journal of Policy Analysis and Management</em>, 27(4), 867–894.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2000s">
+        <div class="pub-year">2008</div>
+        <div class="pub-content">
+          <div class="pub-title">Who are the Eligible Non-Recipients of Child Care Subsidies?</div>
+          <div class="pub-authors">Herbst, C.M.</div>
+          <div class="pub-journal"><em>Children and Youth Services Review</em>, 30(9), 1037–1054.</div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-decade="2000s">
+        <div class="pub-year">2008</div>
+        <div class="pub-content">
+          <div class="pub-title">Close to Home: A Simultaneous Equations Model of the Relationship Between Child Care Accessibility and Women's Labor Force Participation</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Barnow, B.S.</div>
+          <div class="pub-journal"><em>Journal of Family and Economic Issues</em>, 29(1), 128–151.</div>
+        </div>
+      </div>
+
+    </div><!-- /pub-list -->
+  </div>
+</section>
+
+<!-- WORKING PAPERS -->
+<section id="working-papers">
+  <div class="container">
+    <div class="section-label">In Progress</div>
+    <h2 class="section-title">Working Papers &amp; Manuscripts</h2>
+
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <div class="pub-title">Reproductive Technology and the Child Care Sector: How Access to Oral Contraception and Abortion Shaped Workforce Composition and Quality</div>
+          <div class="pub-authors">Herbst, C.M. &amp; Tekin, E.</div>
+          <div class="pub-journal">NBER Working Paper No. 33521. National Bureau of Economic Research.</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2023</div>
+        <div class="pub-content">
+          <div class="pub-title">Minimum Wage, Worker Quality, and Consumer Well-Being: Evidence from the Child Care Market</div>
+          <div class="pub-authors">Brown, J.H. &amp; Herbst, C.M.</div>
+          <div class="pub-journal">IZA Discussion Paper No. 16257. Third revision requested at <em>Journal of Human Resources</em>.</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2022</div>
+        <div class="pub-content">
+          <div class="pub-title">An Equilibrium Model of the Impact of Increased Public Investment in Early Childhood Education</div>
+          <div class="pub-authors">Borowsky, J., Brown, J.H., Davis, E.E., Gibbs, C., Herbst, C.M., Sojourner, A., Tekin, E., &amp; Wiswall, M.J.</div>
+          <div class="pub-journal">NBER Working Paper No. 30140. National Bureau of Economic Research.</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">Current</div>
+        <div class="pub-content">
+          <div class="pub-title">Saving Child Care? The Reach and Impact of COVID Stabilization Funds</div>
+          <div class="pub-authors">Brown, J.H., Gibbs, C., &amp; Herbst, C.M.</div>
+          <div class="pub-journal">Manuscript in progress.</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">Current</div>
+        <div class="pub-content">
+          <div class="pub-title">The Impact of Private Equity Backed Child Care Services on the Early Education Market</div>
+          <div class="pub-authors">Brown, J.H. &amp; Herbst, C.M.</div>
+          <div class="pub-journal">Manuscript in progress.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRANTS -->
+<section id="grants">
+  <div class="container">
+    <div class="section-label">Funding</div>
+    <h2 class="section-title">Grants &amp; Funded Research</h2>
+
+    <div class="pub-list">
+      <div class="grant-item">
+        <div class="grant-title">"Big Daycare: The Growing Influence of Private Equity in the Market for Early Care and Education"</div>
+        <div class="grant-meta">Alfred P. Sloan Foundation · Co-Principal Investigator (with Jessica Brown) · $454,022 · 2024–2027</div>
+      </div>
+      <div class="grant-item">
+        <div class="grant-title">"Family Migration and Early Life Outcomes"</div>
+        <div class="grant-meta">National Institute of Child Health and Human Development · Investigator · $6,067,685 · 2015–2019</div>
+      </div>
+      <div class="grant-item">
+        <div class="grant-title">"RCT Evaluation of the Arizona Person First Social Safety Net Demonstration"</div>
+        <div class="grant-meta">Arizona Department of Economic Security · Principal Investigator · $926,054 · 2013–2016</div>
+      </div>
+      <div class="grant-item">
+        <div class="grant-title">"Early Childhood Education and Care: A Quantitative Research Program"</div>
+        <div class="grant-meta">Norwegian Research Council · NOK 7,000,000 (USD ~$1,173,000) · 2012–2015</div>
+      </div>
+      <div class="grant-item">
+        <div class="grant-title">"Advancing Health Equity Through Multi-Level Cultural Determinants Research"</div>
+        <div class="grant-meta">U.S. Department of Health and Human Services / NIH · Investigator · $291,708 · 2014–2015</div>
+      </div>
+      <div class="grant-item">
+        <div class="grant-title">"The Demand for Teacher Characteristics in the Child Care Labor Market"</div>
+        <div class="grant-meta">Smith Richardson Foundation · Co-Principal Investigator (with Casey Boyd-Swan) · $16,369 · 2016–2017</div>
+      </div>
+      <div class="grant-item">
+        <div class="grant-title">"What Do Parents Value in a Child Care Provider? Evidence from Yelp Consumer Reviews"</div>
+        <div class="grant-meta">College of Public Service and Community Solutions, ASU · Co-PI · $30,000 · 2017–2018</div>
+      </div>
+      <div class="grant-item">
+        <div class="grant-title">"Are Child Care Subsidies Cost-Effective?"</div>
+        <div class="grant-meta">U.S. DHHS, Administration for Children and Families Child Care Research Scholars Dissertation Grant · $50,000 · 2005–2007</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="container">
+    <div class="section-label">Press</div>
+    <h2 class="section-title">Media Coverage</h2>
+    <div class="media-grid">
+      <div class="media-item"><div class="media-outlet">New York Times</div><div class="media-title">Pandemic Relief Funding for Child Care Is Ending. What Now?</div><div class="media-year">2023</div></div>
+      <div class="media-item"><div class="media-outlet">NPR Marketplace</div><div class="media-title">Families are paying an average of 30% more for child care than they did in 2019</div><div class="media-year">2023</div></div>
+      <div class="media-item"><div class="media-outlet">Washington Post</div><div class="media-title">How to fix the U.S. labor shortage? Provide decent child care</div><div class="media-year">2022</div></div>
+      <div class="media-item"><div class="media-outlet">Bloomberg</div><div class="media-title">US Child-Care Aid Would Supercharge Moms' Employment, Study Says</div><div class="media-year">2022</div></div>
+      <div class="media-item"><div class="media-outlet">New York Times</div><div class="media-title">Jobs Aplenty, but a Shortage of Care Keeps Many Women From Benefiting</div><div class="media-year">2022</div></div>
+      <div class="media-item"><div class="media-outlet">NPR The Indicator</div><div class="media-title">That time America paid for universal day care</div><div class="media-year">2021</div></div>
+      <div class="media-item"><div class="media-outlet">New York Times</div><div class="media-title">School is (whisper it) a form of child care</div><div class="media-year">2020</div></div>
+      <div class="media-item"><div class="media-outlet">Time</div><div class="media-title">Why affordable childcare is out of reach for so many families</div><div class="media-year">2019</div></div>
+      <div class="media-item"><div class="media-outlet">The Atlantic</div><div class="media-title">Why are young people having so little sex?</div><div class="media-year">2018</div></div>
+      <div class="media-item"><div class="media-outlet">Washington Post</div><div class="media-title">We have a child-care crisis in this country. We had the solution 78 years ago.</div><div class="media-year">2018</div></div>
+      <div class="media-item"><div class="media-outlet">Wall Street Journal</div><div class="media-title">The child-care bidding war (Editorial Board)</div><div class="media-year">2016</div></div>
+      <div class="media-item"><div class="media-outlet">The Atlantic</div><div class="media-title">Why does America invest so little in its children?</div><div class="media-year">2016</div></div>
+      <div class="media-item"><div class="media-outlet">Bloomberg</div><div class="media-title">Surging child care costs are hurting more and more Americans</div><div class="media-year">2015</div></div>
+      <div class="media-item"><div class="media-outlet">NPR</div><div class="media-title">U.S. once had universal child care, but rebuilding it won't be easy</div><div class="media-year">2015</div></div>
+      <div class="media-item"><div class="media-outlet">Freakonomics</div><div class="media-title">The coolest child care program you've never heard of</div><div class="media-year">2014</div></div>
+      <div class="media-item"><div class="media-outlet">New York Times</div><div class="media-title">Having children makes you (relatively) happier</div><div class="media-year">2012</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CV -->
+<section id="cv">
+  <div class="container">
+    <div class="section-label">Curriculum Vitae</div>
+    <h2 class="section-title">Academic Positions &amp; Education</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+      <div>
+        <div class="cv-block">
+          <h3>Current &amp; Recent Positions</h3>
+          <div class="cv-entry"><div class="cv-year">2025–</div><div class="cv-desc"><strong>Member</strong>, A Data Infrastructure for Measuring the Care Economy, National Academy of Sciences</div></div>
+          <div class="cv-entry"><div class="cv-year">2023–24</div><div class="cv-desc"><strong>George Soros Visiting Chair</strong>, School of Public Policy, Central European University</div></div>
+          <div class="cv-entry"><div class="cv-year">2023–</div><div class="cv-desc"><strong>Editorial Board Member</strong>, Journal of Policy Analysis and Management</div></div>
+          <div class="cv-entry"><div class="cv-year">2021–</div><div class="cv-desc"><strong>ASU Foundation Professor</strong>, School of Public Affairs, Arizona State University</div></div>
+          <div class="cv-entry"><div class="cv-year">2018–22</div><div class="cv-desc"><strong>Co-Editor</strong>, Journal of Policy Analysis and Management</div></div>
+          <div class="cv-entry"><div class="cv-year">2017–</div><div class="cv-desc"><strong>Research Fellow</strong>, Global Labor Organization (GLO)</div></div>
+          <div class="cv-entry"><div class="cv-year">2017</div><div class="cv-desc"><strong>Visiting Professor</strong>, Dept. of Economics &amp; Business Economics, Aarhus University</div></div>
+          <div class="cv-entry"><div class="cv-year">2014–21</div><div class="cv-desc"><strong>Associate Professor</strong> (with tenure), School of Public Affairs, ASU</div></div>
+          <div class="cv-entry"><div class="cv-year">2012–</div><div class="cv-desc"><strong>Research Fellow</strong>, Institute for Labor Economics (IZA)</div></div>
+          <div class="cv-entry"><div class="cv-year">2008–14</div><div class="cv-desc"><strong>Assistant Professor</strong>, School of Public Affairs, ASU</div></div>
+          <div class="cv-entry"><div class="cv-year">2007–08</div><div class="cv-desc"><strong>Fulbright Fellow</strong>, Centre for Comparative Welfare Studies, Aalborg University, Denmark</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="cv-block">
+          <h3>Education</h3>
+          <div class="cv-entry"><div class="cv-year">2007</div><div class="cv-desc"><strong>Ph.D., Public Policy</strong><br>University of Maryland, College Park</div></div>
+          <div class="cv-entry"><div class="cv-year">2002</div><div class="cv-desc"><strong>M.P.P., Public Policy</strong><br>The Johns Hopkins University</div></div>
+          <div class="cv-entry"><div class="cv-year">2000</div><div class="cv-desc"><strong>M.S., Social Work/Policy</strong><br>Columbia University</div></div>
+          <div class="cv-entry"><div class="cv-year">1998</div><div class="cv-desc"><strong>B.A., Psychology</strong><br>Fairfield University</div></div>
+        </div>
+        <div class="cv-block">
+          <h3>Awards &amp; Fellowships</h3>
+          <div class="cv-entry"><div class="cv-year">2023–24</div><div class="cv-desc">George Soros Visiting Chair, CEU</div></div>
+          <div class="cv-entry"><div class="cv-year">2016</div><div class="cv-desc">Distinguished Faculty Research Award, ASU School of Public Affairs</div></div>
+          <div class="cv-entry"><div class="cv-year">2014</div><div class="cv-desc">Training Certificate, IES Summer Institute on Cluster Randomized Trials</div></div>
+          <div class="cv-entry"><div class="cv-year">2012</div><div class="cv-desc">Distinguished Faculty Research Award, ASU School of Public Affairs</div></div>
+          <div class="cv-entry"><div class="cv-year">2007–08</div><div class="cv-desc">Fulbright Fellow, Aalborg University, Denmark</div></div>
+          <div class="cv-entry"><div class="cv-year">2006–07</div><div class="cv-desc">Ph.D. Dissertation Award, Association for Public Policy Analysis and Management</div></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="CM_Herbst_CV.docx" download class="cv-download">↓ &nbsp; Download Full CV</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>I welcome inquiries from students, researchers, journalists, and policymakers interested in the economics of child care, early education, and the social safety net.</p>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <span class="contact-detail-value"><a href="mailto:chris.herbst@asu.edu">chris.herbst@asu.edu</a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Phone</span>
+          <span class="contact-detail-value">602.496.0458</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Office</span>
+          <span class="contact-detail-value">411 N. Central Ave., Suite 420<br>Phoenix, Arizona 85004-0687</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Affiliation</span>
+          <span class="contact-detail-value">School of Public Affairs<br>Arizona State University</span>
+        </div>
+      </div>
+      <div>
+        <div class="sidebar-block" style="background: var(--warm-white);">
+          <h4>Affiliated Organizations</h4>
+          <ul>
+            <li>Institute of Labor Economics (IZA) — Research Fellow</li>
+            <li>Global Labor Organization (GLO) — Research Fellow</li>
+            <li>National Academy of Sciences — Committee Member, 2025–</li>
+            <li>Jacob France Institute, University of Baltimore — Research Fellow</li>
+            <li>School of Social Work, ASU — Faculty Affiliate</li>
+            <li>Center for Population Dynamics, ASU — Faculty Affiliate</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Chris M. Herbst &nbsp;·&nbsp; School of Public Affairs, Arizona State University
+</footer>
+
+<script>
+  function filterPubs(decade, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.pub-item').forEach(item => {
+      if (decade === 'all') {
+        item.style.display = '';
+      } else {
+        item.style.display = item.dataset.decade === decade ? '' : 'none';
+      }
+    });
+  }
+
+  // Smooth active nav highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--gold-light)' : '';
+    });
+  });
+</script>
+</body>
+</html>
