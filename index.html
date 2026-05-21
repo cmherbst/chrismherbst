@@ -47,7 +47,10 @@
       font-size: 1rem;
       letter-spacing: 0.04em;
       font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
     }
+    .nav-name:hover { color: #fff; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       color: rgba(255,255,255,0.78);
@@ -115,11 +118,20 @@
     }
     .hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-size: clamp(2rem, 3.2vw, 2.9rem);
       color: #fff;
       line-height: 1.12;
       font-weight: 700;
+      margin-bottom: 0.5rem;
+      white-space: nowrap;
+    }
+    .hero-university {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
       margin-bottom: 1rem;
+      letter-spacing: 0.02em;
     }
     .hero-title {
       font-family: 'Source Serif 4', serif;
@@ -466,14 +478,14 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-name">Chris M. Herbst</div>
+  <a href="#" class="nav-name">Chris M. Herbst</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#publications">Research</a></li>
     <li><a href="#grants">Grants</a></li>
     <li><a href="#media">Media</a></li>
-    <li><a href="#cv">CV</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="CM_Herbst_CV.pdf" target="_blank" style="color:var(--gold-light);border:1px solid rgba(184,151,58,0.5);padding:0.25rem 0.7rem;border-radius:2px;">CV</a></li>
   </ul>
 </nav>
 
@@ -485,7 +497,8 @@
     </div>
     <div class="hero-text">
       <div class="hero-eyebrow">Arizona State University</div>
-      <h1 class="hero-name">Chris M.<br>Herbst</h1>
+      <h1 class="hero-name">Chris M. Herbst</h1>
+      <div class="hero-university">Arizona State University</div>
       <div class="hero-title">
         Foundation Professor, School of Public Affairs<br>
         Faculty Affiliate, School of Social Work<br>
@@ -493,11 +506,11 @@
       </div>
       <div class="hero-divider"></div>
       <div class="hero-interests">
-        <span class="tag">Child Care Economics</span>
-        <span class="tag">Early Human Capital</span>
-        <span class="tag">Social Safety Net</span>
+        <span class="tag">Economics of Child Care</span>
+        <span class="tag">Child Care and Early Education Policy</span>
+        <span class="tag">Early Human Capital Development</span>
         <span class="tag">Labor Economics</span>
-        <span class="tag">Education Policy</span>
+        <span class="tag">Social Safety Net Policy</span>
       </div>
       <div class="hero-contact">
         411 N. Central Ave., Ste. 420 · Phoenix, Arizona 85004 &nbsp;·&nbsp;
@@ -971,14 +984,7 @@
           <div class="pub-journal">NBER Working Paper No. 30140. National Bureau of Economic Research.</div>
         </div>
       </div>
-      <div class="pub-item">
-        <div class="pub-year">Current</div>
-        <div class="pub-content">
-          <div class="pub-title">Saving Child Care? The Reach and Impact of COVID Stabilization Funds</div>
-          <div class="pub-authors">Brown, J.H., Gibbs, C., &amp; Herbst, C.M.</div>
-          <div class="pub-journal">Manuscript in progress.</div>
-        </div>
-      </div>
+
       <div class="pub-item">
         <div class="pub-year">Current</div>
         <div class="pub-content">
@@ -1060,52 +1066,7 @@
   </div>
 </section>
 
-<!-- CV -->
-<section id="cv">
-  <div class="container">
-    <div class="section-label">Curriculum Vitae</div>
-    <h2 class="section-title">Academic Positions &amp; Education</h2>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-      <div>
-        <div class="cv-block">
-          <h3>Current &amp; Recent Positions</h3>
-          <div class="cv-entry"><div class="cv-year">2025–</div><div class="cv-desc"><strong>Member</strong>, A Data Infrastructure for Measuring the Care Economy, National Academy of Sciences</div></div>
-          <div class="cv-entry"><div class="cv-year">2023–24</div><div class="cv-desc"><strong>George Soros Visiting Chair</strong>, School of Public Policy, Central European University</div></div>
-          <div class="cv-entry"><div class="cv-year">2023–</div><div class="cv-desc"><strong>Editorial Board Member</strong>, Journal of Policy Analysis and Management</div></div>
-          <div class="cv-entry"><div class="cv-year">2021–</div><div class="cv-desc"><strong>ASU Foundation Professor</strong>, School of Public Affairs, Arizona State University</div></div>
-          <div class="cv-entry"><div class="cv-year">2018–22</div><div class="cv-desc"><strong>Co-Editor</strong>, Journal of Policy Analysis and Management</div></div>
-          <div class="cv-entry"><div class="cv-year">2017–</div><div class="cv-desc"><strong>Research Fellow</strong>, Global Labor Organization (GLO)</div></div>
-          <div class="cv-entry"><div class="cv-year">2017</div><div class="cv-desc"><strong>Visiting Professor</strong>, Dept. of Economics &amp; Business Economics, Aarhus University</div></div>
-          <div class="cv-entry"><div class="cv-year">2014–21</div><div class="cv-desc"><strong>Associate Professor</strong> (with tenure), School of Public Affairs, ASU</div></div>
-          <div class="cv-entry"><div class="cv-year">2012–</div><div class="cv-desc"><strong>Research Fellow</strong>, Institute for Labor Economics (IZA)</div></div>
-          <div class="cv-entry"><div class="cv-year">2008–14</div><div class="cv-desc"><strong>Assistant Professor</strong>, School of Public Affairs, ASU</div></div>
-          <div class="cv-entry"><div class="cv-year">2007–08</div><div class="cv-desc"><strong>Fulbright Fellow</strong>, Centre for Comparative Welfare Studies, Aalborg University, Denmark</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="cv-block">
-          <h3>Education</h3>
-          <div class="cv-entry"><div class="cv-year">2007</div><div class="cv-desc"><strong>Ph.D., Public Policy</strong><br>University of Maryland, College Park</div></div>
-          <div class="cv-entry"><div class="cv-year">2002</div><div class="cv-desc"><strong>M.P.P., Public Policy</strong><br>The Johns Hopkins University</div></div>
-          <div class="cv-entry"><div class="cv-year">2000</div><div class="cv-desc"><strong>M.S., Social Work/Policy</strong><br>Columbia University</div></div>
-          <div class="cv-entry"><div class="cv-year">1998</div><div class="cv-desc"><strong>B.A., Psychology</strong><br>Fairfield University</div></div>
-        </div>
-        <div class="cv-block">
-          <h3>Awards &amp; Fellowships</h3>
-          <div class="cv-entry"><div class="cv-year">2023–24</div><div class="cv-desc">George Soros Visiting Chair, CEU</div></div>
-          <div class="cv-entry"><div class="cv-year">2016</div><div class="cv-desc">Distinguished Faculty Research Award, ASU School of Public Affairs</div></div>
-          <div class="cv-entry"><div class="cv-year">2014</div><div class="cv-desc">Training Certificate, IES Summer Institute on Cluster Randomized Trials</div></div>
-          <div class="cv-entry"><div class="cv-year">2012</div><div class="cv-desc">Distinguished Faculty Research Award, ASU School of Public Affairs</div></div>
-          <div class="cv-entry"><div class="cv-year">2007–08</div><div class="cv-desc">Fulbright Fellow, Aalborg University, Denmark</div></div>
-          <div class="cv-entry"><div class="cv-year">2006–07</div><div class="cv-desc">Ph.D. Dissertation Award, Association for Public Policy Analysis and Management</div></div>
-        </div>
-      </div>
-    </div>
-
-    <a href="CM_Herbst_CV.docx" download class="cv-download">↓ &nbsp; Download Full CV</a>
-  </div>
-</section>
 
 <!-- CONTACT -->
 <section id="contact">
