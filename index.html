@@ -346,6 +346,16 @@
       color: var(--navy);
       line-height: 1.5;
     }
+    .media-title a {
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184,151,58,0.4);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .media-title a:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
     .media-year {
       font-family: 'DM Mono', monospace;
       font-size: 0.65rem;
@@ -1045,29 +1055,96 @@
 <section id="media">
   <div class="container">
     <div class="section-label">Press</div>
-    <h2 class="section-title">Media Coverage</h2>
+    <h2 class="section-title">Select Media Coverage</h2>
     <div class="media-grid">
-      <div class="media-item"><div class="media-outlet">New York Times</div><div class="media-title">Pandemic Relief Funding for Child Care Is Ending. What Now?</div><div class="media-year">2023</div></div>
-      <div class="media-item"><div class="media-outlet">NPR Marketplace</div><div class="media-title">Families are paying an average of 30% more for child care than they did in 2019</div><div class="media-year">2023</div></div>
-      <div class="media-item"><div class="media-outlet">Washington Post</div><div class="media-title">How to fix the U.S. labor shortage? Provide decent child care</div><div class="media-year">2022</div></div>
-      <div class="media-item"><div class="media-outlet">Bloomberg</div><div class="media-title">US Child-Care Aid Would Supercharge Moms' Employment, Study Says</div><div class="media-year">2022</div></div>
-      <div class="media-item"><div class="media-outlet">New York Times</div><div class="media-title">Jobs Aplenty, but a Shortage of Care Keeps Many Women From Benefiting</div><div class="media-year">2022</div></div>
-      <div class="media-item"><div class="media-outlet">NPR The Indicator</div><div class="media-title">That time America paid for universal day care</div><div class="media-year">2021</div></div>
-      <div class="media-item"><div class="media-outlet">New York Times</div><div class="media-title">School is (whisper it) a form of child care</div><div class="media-year">2020</div></div>
-      <div class="media-item"><div class="media-outlet">Time</div><div class="media-title">Why affordable childcare is out of reach for so many families</div><div class="media-year">2019</div></div>
-      <div class="media-item"><div class="media-outlet">The Atlantic</div><div class="media-title">Why are young people having so little sex?</div><div class="media-year">2018</div></div>
-      <div class="media-item"><div class="media-outlet">Washington Post</div><div class="media-title">We have a child-care crisis in this country. We had the solution 78 years ago.</div><div class="media-year">2018</div></div>
-      <div class="media-item"><div class="media-outlet">Wall Street Journal</div><div class="media-title">The child-care bidding war (Editorial Board)</div><div class="media-year">2016</div></div>
-      <div class="media-item"><div class="media-outlet">The Atlantic</div><div class="media-title">Why does America invest so little in its children?</div><div class="media-year">2016</div></div>
-      <div class="media-item"><div class="media-outlet">Bloomberg</div><div class="media-title">Surging child care costs are hurting more and more Americans</div><div class="media-year">2015</div></div>
-      <div class="media-item"><div class="media-outlet">NPR</div><div class="media-title">U.S. once had universal child care, but rebuilding it won't be easy</div><div class="media-year">2015</div></div>
-      <div class="media-item"><div class="media-outlet">Freakonomics</div><div class="media-title">The coolest child care program you've never heard of</div><div class="media-year">2014</div></div>
-      <div class="media-item"><div class="media-outlet">New York Times</div><div class="media-title">Having children makes you (relatively) happier</div><div class="media-year">2012</div></div>
+
+      <div class="media-item">
+        <div class="media-outlet">The 74</div>
+        <div class="media-title"><a href="https://www.the74million.org/zero2eight/ice-arrests-are-forcing-american-moms-to-leave-their-jobs/" target="_blank" rel="noopener">ICE Arrests Are Forcing American Moms to Leave Their Jobs</a></div>
+        <div class="media-year">2026</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">Axios</div>
+        <div class="media-title"><a href="https://www.axios.com/local/phoenix/2025/12/10/immigration-child-care-mothers-workforce" target="_blank" rel="noopener">Immigration crackdown cuts child care and sidelines moms</a></div>
+        <div class="media-year">2026</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">USA Today</div>
+        <div class="media-title"><a href="https://www.usatoday.com/story/life/health-wellness/2025/12/10/nanny-ice-deportations-boss-family-terrified/87620091007/" target="_blank" rel="noopener">This nanny is a citizen, but her brother's deportation has made work unbearable</a></div>
+        <div class="media-year">2026</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">KJZZ's The Show</div>
+        <div class="media-title"><a href="https://www.kjzz.org/the-show/2026-01-05/deportations-are-shrinking-the-child-care-workforce-whole-labor-market-could-be-next" target="_blank" rel="noopener">Deportations are shrinking the child care workforce. The whole labor market could be next.</a></div>
+        <div class="media-year">2026</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">The Atlantic</div>
+        <div class="media-title"><a href="https://www.theatlantic.com/family/2025/12/immigration-pronatalism-trump-vance/685275/" target="_blank" rel="noopener">The Truth About Immigration That MAGA Doesn't Acknowledge</a></div>
+        <div class="media-year">2026</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">JPAM's Closer Look Podcast</div>
+        <div class="media-title"><a href="https://www.appam.org/news/jpam/jpam-closer-look-podcast/" target="_blank" rel="noopener">Effects of Center-Based Child Care on Disadvantaged Children</a></div>
+        <div class="media-year">2025</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">NPR Marketplace</div>
+        <div class="media-title"><a href="https://www.marketplace.org/story/2023/10/31/rising-child-care-costs-pandemic-subsidies" target="_blank" rel="noopener">Families are paying an average of 30% more for child care than they did in 2019</a></div>
+        <div class="media-year">2023</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">Bloomberg</div>
+        <div class="media-title"><a href="https://www.bloomberg.com/news/articles/2022-06-13/us-child-care-aid-would-supercharge-moms-employment-study-says" target="_blank" rel="noopener">US Child-Care Aid Would Supercharge Moms' Employment, Study Says</a></div>
+        <div class="media-year">2022</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">NPR The Indicator</div>
+        <div class="media-title"><a href="https://www.npr.org/2021/06/30/1011968802/that-time-america-paid-for-universal-daycare" target="_blank" rel="noopener">That time America paid for universal day care</a></div>
+        <div class="media-year">2021</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">New York Times</div>
+        <div class="media-title"><a href="https://www.nytimes.com/2020/10/13/opinion/coronavirus-schools-child-care-centers.html" target="_blank" rel="noopener">School is (whisper it) a form of child care</a></div>
+        <div class="media-year">2020</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">Hidden Brain Podcast</div>
+        <div class="media-title"><a href="https://www.npr.org/2017/06/28/534671504/child-care-centers-often-dont-hire-the-most-qualified-teachers-study-shows" target="_blank" rel="noopener">Child Care Centers Often Don't Hire The Most Qualified Teachers, Study Shows</a></div>
+        <div class="media-year">2017</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">The Atlantic</div>
+        <div class="media-title"><a href="https://www.theatlantic.com/education/archive/2016/07/why-does-america-invest-so-little-in-its-children/490790/" target="_blank" rel="noopener">Why does America invest so little in its children?</a></div>
+        <div class="media-year">2016</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">IRP Inequality &amp; Mobility Podcast</div>
+        <div class="media-title"><a href="https://www.irp.wisc.edu/resource/reassessing-the-evidence-on-the-rising-costs-of-child-care/" target="_blank" rel="noopener">Reassessing the Evidence on the Rising Costs of Child Care</a></div>
+        <div class="media-year">2016</div>
+      </div>
+
+      <div class="media-item">
+        <div class="media-outlet">NPR</div>
+        <div class="media-title"><a href="https://www.npr.org/2015/01/24/379530251/u-s-once-had-universal-child-care-but-rebuilding-it-wouldnt-be-easy" target="_blank" rel="noopener">U.S. once had universal child care, but rebuilding it won't be easy</a></div>
+        <div class="media-year">2015</div>
+      </div>
+
     </div>
   </div>
 </section>
-
-
 
 <!-- CONTACT -->
 <section id="contact">
