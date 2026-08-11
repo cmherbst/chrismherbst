@@ -295,6 +295,21 @@
       color: var(--text);
     }
     .pub-journal em { color: var(--navy); font-style: italic; }
+    .pub-data-link { margin-top: 0.6rem; }
+    .pub-data-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184,151,58,0.4);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .pub-data-link a:hover { color: var(--navy); border-color: var(--navy); }
 
     /* ── WORKING PAPERS ── */
     #working-papers { background: var(--cream); }
@@ -633,6 +648,7 @@
           <div class="pub-title"><a href="https://doi.org/10.1002/pam.22568" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(184,151,58,0.5);transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--navy)'">Minimum Quality Regulations and the Demand for Child Care Labor</a></div>
           <div class="pub-authors">Ali, U., Herbst, C.M., &amp; Makridis, C.</div>
           <div class="pub-journal"><em>Journal of Policy Analysis and Management</em>, 43(3), 660–695.</div>
+          <div class="pub-data-link"><a href="child_care_regs_public_release.xlsx" target="_blank" rel="noopener">↓ Download the Child Care Regulation Data</a></div>
         </div>
       </div>
 
